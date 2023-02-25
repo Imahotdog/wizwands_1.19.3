@@ -15,12 +15,18 @@ public class ModItems {
     public static final Item BISMUTH = registerItem("bismuth",
             new Item(new FabricItemSettings()));
 
+    public static final Item RAW_BISMUTH = registerItem("raw_bismuth",
+            new Item(new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(WizWands.MOD_ID, name), item);
     }
 
     public static void addItemsToItemGroup(){
         addToItemGroup(ItemGroups.INGREDIENTS, BISMUTH);
+        addToItemGroup(ItemGroups.INGREDIENTS, RAW_BISMUTH);
+
+        addToItemGroup(ModItemGroup.MAGICALMATERIALS, BISMUTH);
+        addToItemGroup(ModItemGroup.MAGICALMATERIALS, RAW_BISMUTH);
     }
 
     private static void addToItemGroup(ItemGroup group, Item item){
